@@ -2,9 +2,7 @@ package com.GoSpringBoot.Starter.Ctl;
 
 import io.swagger.v3.oas.annotations.Hidden;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/")
@@ -29,5 +27,19 @@ public class StarterCtl {
     public String Hidden()
     {
         return "Hidden";
+    }
+
+    @GetMapping("/start")
+    public String getStart(@RequestParam("name") String name)
+    {
+        log.info("name => {}", name);
+        return "OK";
+    }
+
+    @GetMapping("/start2/{name}")
+    public String getStart2(@PathVariable("name") String name)
+    {
+        log.info("name ==> {}", name);
+        return "OK";
     }
 }
