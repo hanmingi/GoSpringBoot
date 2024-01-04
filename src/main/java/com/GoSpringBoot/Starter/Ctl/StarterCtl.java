@@ -42,4 +42,12 @@ public class StarterCtl {
         log.info("name ==> {}", name);
         return "OK";
     }
+
+    @PostMapping("/name")
+    public String addName(@RequestBody String name)
+    {
+        log.info("name : {}", name);
+        return "OK";
+    }
+
 }
