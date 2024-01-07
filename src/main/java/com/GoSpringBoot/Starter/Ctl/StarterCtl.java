@@ -1,5 +1,7 @@
 package com.GoSpringBoot.Starter.Ctl;
 
+import com.GoSpringBoot.Starter.Vo.ItemVo;
+import com.GoSpringBoot.Starter.Vo.ResponseVo;
 import io.swagger.v3.oas.annotations.Hidden;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -43,11 +45,17 @@ public class StarterCtl {
         return "OK";
     }
 
-    @PostMapping("/name")
-    public String addName(@RequestBody String name)
+    @PostMapping("/item")
+    public ResponseVo addName(@RequestBody ItemVo item)
     {
-        log.info("name : {}", name);
-        return "OK";
+        log.info("name : {}", item);
+
+        // option + cmd + v : 변수로 해당 객체 추출
+        ResponseVo responseVo = new ResponseVo();
+
+        responseVo.setMessage("ok");
+
+        return responseVo;
     }
 
 }
